@@ -13,7 +13,7 @@ public class RangeWeaponHandler : WeaponHandler
     public int BulletIndex { get { return bulletIndex; } }
 
     [SerializeField] private float bulletSize = 1;
-    public float BulletOutded { get {return bulletIndex; } }
+    public float BulletSize { get {return bulletIndex; } }
 
     [SerializeField] private float duration;
     public float Duration {  get { return duration; } }
