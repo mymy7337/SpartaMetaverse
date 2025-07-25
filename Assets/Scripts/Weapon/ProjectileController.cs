@@ -46,7 +46,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (levelCollisionLayer.value == (levelCollisionLayer.value | (1 << collision.gameObject.layer)))
         {
-            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f, fxOnDestroy);
+            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * .2f, fxOnDestroy);
         }
         else if (rangeWeaponHandler.target.value == (rangeWeaponHandler.target.value | (1 << collision.gameObject.layer)))
         {
