@@ -26,7 +26,8 @@ public class MeleeWeaponHandler : WeaponHandler
             ResourceController resourceController = hit.collider.GetComponent<ResourceController>();
             if(resourceController != null)
             {
-                resourceController.ChangeHealth(-Power);
+                StartCoroutine(DelayDamage(resourceController, 0.45f));
+
                 if(IsOnKnockback)
                 {
                     BaseController controller = hit.collider.GetComponent<BaseController>();
@@ -45,5 +46,12 @@ public class MeleeWeaponHandler : WeaponHandler
             transform.eulerAngles = new Vector3(0, 180, 0);
         else
             transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
+    private IEnumerator DelayDamage(ResourceController resourceController, float delay)
+    {
+        ResourceController resource = resourceController;
+        yield return new WaitForSeconds(delay);
+        resource.ChangeHealth(-Power);
     }
 }
