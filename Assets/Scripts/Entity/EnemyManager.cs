@@ -78,6 +78,7 @@ public class EnemyManager : MonoBehaviour
 
         GameObject spawnedEnemy = Instantiate(randomPrefab, new Vector3(randomPosition.x, randomPosition.y), Quaternion.identity);
         EnemyController enemyController = spawnedEnemy.GetComponent<EnemyController>();
+        enemyController.Init(this, gameManager.player.transform);
 
         activeEnemies.Add(enemyController);
     }
@@ -92,6 +93,15 @@ public class EnemyManager : MonoBehaviour
             Vector3 center = new Vector3(area.x + area.width / 2, area.y + area.height / 2);
             Vector3 size = new Vector3(area.width, area.height);
             Gizmos.DrawCube(center, size);
+        }
+    }
+
+    public void RemoveEnemyOnDeath(EnemyController enemy)
+    {
+        activeEnemies.Remove(enemy);
+        if (enemySpawnComplite && activeEnemies.Count == 0)
+        {
+            gameManager.EndOfWave();
         }
     }
 }
