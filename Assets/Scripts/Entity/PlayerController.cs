@@ -38,6 +38,6 @@ public class PlayerController : BaseController
     public override void Death()
     {
         base.Death();
-        gameObject.GameOver();
+        gameManager.GameOver();
     }
 }
