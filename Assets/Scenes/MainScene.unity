@@ -3927,6 +3927,8 @@ GameObject:
   - component: {fileID: 2123425500}
   - component: {fileID: 2123425499}
   - component: {fileID: 2123425501}
+  - component: {fileID: 2123425503}
+  - component: {fileID: 2123425502}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3992,6 +3994,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 1087280979}
   weaponPivot: {fileID: 526288390}
+--- !u!114 &2123425502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123425498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7199a90a27e6d124ab71a05ee126dd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2123425503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123425498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6556e74f21bce74380f39fdaa992bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
