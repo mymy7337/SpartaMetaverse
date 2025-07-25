@@ -20,6 +20,11 @@ public class EnemyController : BaseController
         return Vector3.Distance(transform.position, target.position);
     }
 
+    protected Vector2 DirectionToTarget()
+    {
+        return (target.position - transform.position).normalized;
+    }
+
     protected override void HandleAction()
     {
         base.HandleAction();
@@ -35,26 +40,29 @@ public class EnemyController : BaseController
         Vector2 direction = DirectionToTarget();
 
         isAttacking = false;
+
         if(distance <= followRange)
         {
-            int layerMaskTarget = weaponHandler.target;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, weaponHandler.AttackRange * 1.5f,
-                (1 << LayerMask.NameToLayer("Level")) | layerMaskTarget);
+            lookDirection = direction;
 
-            if (hit.collider != null && layerMaskTarget == (layerMaskTarget | (1 << hit.collider.gameObject.layer)))
+            if (distance <= weaponHandler.AttackRange)
             {
-                isAttacking = true;
+                int layerMaskTarget = weaponHandler.target;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position,
+                    direction, weaponHandler.AttackRange * 1.5f,
+                    (1 << LayerMask.NameToLayer("Level")) | layerMaskTarget);
+
+                if (hit.collider != null && layerMaskTarget == (layerMaskTarget | (1 << hit.collider.gameObject.layer)))
+                {
+                    isAttacking = true;
+                }
+
+                movementDirction = Vector2.zero;
+                return;
             }
-
-            movementDirction = Vector2.zero;
-            return;
         }
-        movementDirction = direction;
-    }
 
-    protected Vector2 DirectionToTarget()
-    {
-        return (target.position - transform.position).normalized;
+        movementDirction = direction;
     }
 
     public override void Death()

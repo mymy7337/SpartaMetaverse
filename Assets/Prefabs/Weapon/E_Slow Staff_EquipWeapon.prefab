@@ -192,7 +192,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isOnKnockback: 1
-  knockbackPower: 3
+  knockbackPower: 1
   knockbackTime: 0.1
   projectileSpawnPosition: {fileID: 7323604421292824032}
   bulletIndex: 1

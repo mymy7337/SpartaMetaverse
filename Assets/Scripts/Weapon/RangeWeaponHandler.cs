@@ -35,7 +35,6 @@ public class RangeWeaponHandler : WeaponHandler
     public override void Attack()
     {
         base.Attack();
-
         float projectileAngleSpace = multipleProjectilesAngle;
         int numberOfProjectilesPerShot = numberOfProjectilePerShot;
 
