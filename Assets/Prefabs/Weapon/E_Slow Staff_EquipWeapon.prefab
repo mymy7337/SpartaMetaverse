@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3218413533531068010}
   - component: {fileID: 542358278254837687}
-  - component: {fileID: 8407126568543939314}
+  - component: {fileID: 2949752402490198007}
   m_Layer: 0
   m_Name: WeaponSprite
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8407126568543939314
+--- !u!95 &2949752402490198007
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 1257351119467594382}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3f1ff67cad6d574bb3cc58cd3e1f3d0, type: 2}
+  m_Controller: {fileID: 9100000, guid: cbcf6e4aaeb9d6447a5d8168a59d53ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
