@@ -10,7 +10,7 @@ public class RangeWeaponHandler : WeaponHandler
     [SerializeField] private Transform projectileSpawnPosition;
 
     [SerializeField] private int bulletIndex;
-    public float BulletInded { get { return bulletIndex; } }
+    public int BulletIndex { get { return bulletIndex; } }
 
     [SerializeField] private float bulletSize = 1;
     public float BulletOutded { get {return bulletIndex; } }
