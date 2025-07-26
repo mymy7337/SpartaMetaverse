@@ -27,6 +27,7 @@ public class BaseController : MonoBehaviour
     protected WeaponHandler weaponHandler;
 
     protected bool isAttacking;
+    protected bool isInteracting;
     private float timeSinceLastAttack = float.MaxValue;
 
     protected virtual void Awake()

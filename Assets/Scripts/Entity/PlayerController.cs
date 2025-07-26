@@ -53,4 +53,9 @@ public class PlayerController : BaseController
     {
         isAttacking = Input.GetMouseButton(0);
     }
+
+    void OnInteract()
+    {
+        isInteracting = true;
+    }
 }
