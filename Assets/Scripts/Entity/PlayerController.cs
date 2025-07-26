@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerController : BaseController
 {
@@ -15,10 +17,24 @@ public class PlayerController : BaseController
 
     protected override void HandleAction()
     {
+
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        gameManager.GameOver();
+    }
+
+    private void OnMove()
+    {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        movementDirction = new Vector2 (horizontal, vertical).normalized;
+        movementDirction = new Vector2(horizontal, vertical).normalized;
+    }
 
+    void OnLook()
+    {
         Vector2 mousePosition = Input.mousePosition;
         Vector2 worldPos = camera.ScreenToWorldPoint(mousePosition);
         lookDirection = (worldPos - (Vector2)transform.position);
@@ -31,13 +47,10 @@ public class PlayerController : BaseController
         {
             lookDirection = lookDirection.normalized;
         }
-
-        isAttacking = Input.GetMouseButton(0);
     }
 
-    public override void Death()
+    void OnFire()
     {
-        base.Death();
-        gameManager.GameOver();
+        isAttacking = Input.GetMouseButton(0);
     }
 }

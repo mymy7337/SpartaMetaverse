@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6556e74f21bce74380f39fdaa992bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 15
   speed: 2
 --- !u!114 &4236502811027826688
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 182351368621152417}
   weaponPivot: {fileID: 3839724236519250817}
-  WeaponPrefab: {fileID: 7189961442891088989, guid: aa18296f97c312b4ab6e85a842dfb433, type: 3}
+  WeaponPrefab: {fileID: 4074966091856738842, guid: 3939dbefe0c498347bf462060a41c182, type: 3}
   followRange: 15
 --- !u!1 &5887306253312166943
 GameObject:

@@ -26,7 +26,7 @@ public class MeleeWeaponHandler : WeaponHandler
             ResourceController resourceController = hit.collider.GetComponent<ResourceController>();
             if(resourceController != null)
             {
-                StartCoroutine(DelayDamage(resourceController, 0.45f));
+                StartCoroutine(DelayDamage(resourceController, 0.5f));
 
                 if(IsOnKnockback)
                 {
