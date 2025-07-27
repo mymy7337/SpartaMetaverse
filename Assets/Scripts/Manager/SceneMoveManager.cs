@@ -8,6 +8,8 @@ public class SceneMoveManager : MonoBehaviour
     private BaseController controller;
     private InteractionManager interactionManager;
 
+    [SerializeField] private string sceneToLoad;
+
     private void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -16,11 +18,7 @@ public class SceneMoveManager : MonoBehaviour
     }
     private void Update()
     {
-        if (controller != null && controller.IsInteracting == true)
-            SceneManager.LoadScene("StackScene");
-    }
-    public void ToStackScene()
-    {
-            SceneManager.LoadScene("StackScene");
+        if (interactionManager.IsPlayerInside && controller != null && controller.IsInteracting == true)
+            SceneManager.LoadScene(sceneToLoad);
     }
 }
