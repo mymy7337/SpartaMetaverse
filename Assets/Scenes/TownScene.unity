@@ -12115,6 +12115,8 @@ GameObject:
   - component: {fileID: 1546939676}
   - component: {fileID: 1546939675}
   - component: {fileID: 1546939674}
+  - component: {fileID: 1546939677}
+  - component: {fileID: 1546939678}
   m_Layer: 0
   m_Name: EventTile
   m_TagString: Untagged
@@ -12364,6 +12366,30 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1546939677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546939672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7355781f2a8ef40b054456bee4e354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1546939678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546939672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90c40368052034599d728e4c949860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551151906
 GameObject:
   m_ObjectHideFlags: 0
@@ -12428,7 +12454,7 @@ GameObject:
   - component: {fileID: 1675501818}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12517,6 +12543,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 641853495}
   weaponPivot: {fileID: 2117530183}
   WeaponPrefab: {fileID: 7189961442891088989, guid: f0d0bac5bf066304f9c46c980592945a, type: 3}
+  isInteracting: 0
 --- !u!61 &1675501823
 BoxCollider2D:
   m_ObjectHideFlags: 0

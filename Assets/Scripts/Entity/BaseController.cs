@@ -27,7 +27,8 @@ public class BaseController : MonoBehaviour
     protected WeaponHandler weaponHandler;
 
     protected bool isAttacking;
-    protected bool isInteracting;
+    [SerializeField] protected bool isInteracting;
+    public bool IsInteracting { get { return isInteracting; } }
     private float timeSinceLastAttack = float.MaxValue;
 
     protected virtual void Awake()
