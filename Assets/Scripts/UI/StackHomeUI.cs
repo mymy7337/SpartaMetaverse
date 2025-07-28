@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HomeUI : BaseUI
+public class StackHomeUI : BaseUI
 {
     Button startButton;
     Button exitButton;
 
     protected override UIState GetUIState()
     {
-        return UIState.Home;
+        return UIState.StackHome;
     }
 
     public override void Init(UIManager uIManager)

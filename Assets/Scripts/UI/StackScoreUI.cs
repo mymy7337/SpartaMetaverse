@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.Composites;
 using UnityEngine.UI;
 
-public class ScoreUI : BaseUI
+public class StackScoreUI : BaseUI
 {
     TextMeshProUGUI scoreText;
     TextMeshProUGUI comboText;
@@ -17,7 +17,7 @@ public class ScoreUI : BaseUI
 
     protected override UIState GetUIState()
     {
-        return UIState.Score;
+        return UIState.StackScore;
     }
 
     public override void Init(UIManager uIManager)

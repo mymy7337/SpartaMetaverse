@@ -7,9 +7,9 @@ using UnityEngine.XR;
 
 public enum UIState
 {
-    Home,
-    Game,
-    Score
+    StackHome,
+    StackGame,
+    StackScore
 }
 
 public class UIManager : MonoBehaviour
@@ -17,11 +17,11 @@ public class UIManager : MonoBehaviour
     static UIManager instance;
     public static UIManager Instance { get { return instance; } }
 
-    UIState currentState = UIState.Home;
+    UIState currentState = UIState.StackHome;
 
-    HomeUI homeUI = null;
-    GameUI gameUI = null;
-    ScoreUI scoreUI = null;
+    StackHomeUI homeUI = null;
+    StackGameUI gameUI = null;
+    StackScoreUI scoreUI = null;
 
     TheStack theStack = null;
     private void Awake()
@@ -29,14 +29,14 @@ public class UIManager : MonoBehaviour
         instance = this;
         theStack = FindObjectOfType<TheStack>();
 
-        homeUI = GetComponentInChildren<HomeUI>(true);
+        homeUI = GetComponentInChildren<StackHomeUI>(true);
         homeUI?.Init(this);
-        gameUI = GetComponentInChildren<GameUI>(true);
+        gameUI = GetComponentInChildren<StackGameUI>(true);
         gameUI?.Init(this);
-        scoreUI = GetComponentInChildren<ScoreUI>(true);
+        scoreUI = GetComponentInChildren<StackScoreUI>(true);
         scoreUI?.Init(this);
 
-        ChangeState(UIState.Home);
+        ChangeState(UIState.StackHome);
     }
     public void ChangeState(UIState state)
     {
@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
     public void OnClickStart()
     {
         theStack.Restart();
-        ChangeState(UIState.Game);
+        ChangeState(UIState.StackGame);
     }
     public void OnclickExit()
     {
@@ -68,6 +68,6 @@ public class UIManager : MonoBehaviour
     {
         scoreUI.SetUI(theStack.Score, theStack.MaxCombo, theStack.BestScore, theStack.BestCombo);
 
-        ChangeState(UIState.Score);
+        ChangeState(UIState.StackScore);
     }
 }
