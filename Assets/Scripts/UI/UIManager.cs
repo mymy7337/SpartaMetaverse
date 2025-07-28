@@ -9,7 +9,10 @@ public enum UIState
 {
     StackHome,
     StackGame,
-    StackScore
+    StackScore,
+    DungeonHome,
+    DungeonGame,
+    DungeonGameOver
 }
 
 public class UIManager : MonoBehaviour
@@ -19,9 +22,9 @@ public class UIManager : MonoBehaviour
 
     UIState currentState = UIState.StackHome;
 
-    StackHomeUI homeUI = null;
-    StackGameUI gameUI = null;
-    StackScoreUI scoreUI = null;
+    StackHomeUI stackHomeUI = null;
+    StackGameUI stackGameUI = null;
+    StackScoreUI stackScoreUI = null;
 
     TheStack theStack = null;
     private void Awake()
@@ -29,21 +32,21 @@ public class UIManager : MonoBehaviour
         instance = this;
         theStack = FindObjectOfType<TheStack>();
 
-        homeUI = GetComponentInChildren<StackHomeUI>(true);
-        homeUI?.Init(this);
-        gameUI = GetComponentInChildren<StackGameUI>(true);
-        gameUI?.Init(this);
-        scoreUI = GetComponentInChildren<StackScoreUI>(true);
-        scoreUI?.Init(this);
+        stackHomeUI = GetComponentInChildren<StackHomeUI>(true);
+        stackHomeUI?.Init(this);
+        stackGameUI = GetComponentInChildren<StackGameUI>(true);
+        stackGameUI?.Init(this);
+        stackScoreUI = GetComponentInChildren<StackScoreUI>(true);
+        stackScoreUI?.Init(this);
 
         ChangeState(UIState.StackHome);
     }
     public void ChangeState(UIState state)
     {
         currentState = state;
-        homeUI?.SetActive(currentState);
-        gameUI?.SetActive(currentState);
-        scoreUI?.SetActive(currentState);
+        stackHomeUI?.SetActive(currentState);
+        stackGameUI?.SetActive(currentState);
+        stackScoreUI?.SetActive(currentState);
     }
     public void OnClickStart()
     {
@@ -61,12 +64,12 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        gameUI.SetUI(theStack.Score, theStack.Combo, theStack.MaxCombo);
+        stackGameUI.SetUI(theStack.Score, theStack.Combo, theStack.MaxCombo);
     }
 
     public void SetScoreUI()
     {
-        scoreUI.SetUI(theStack.Score, theStack.MaxCombo, theStack.BestScore, theStack.BestCombo);
+        stackScoreUI.SetUI(theStack.Score, theStack.MaxCombo, theStack.BestScore, theStack.BestCombo);
 
         ChangeState(UIState.StackScore);
     }

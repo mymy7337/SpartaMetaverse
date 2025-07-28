@@ -7,10 +7,16 @@ using UnityEngine;
 public abstract class BaseUI : MonoBehaviour
 {
     protected UIManager uiManager;
+    protected DungeonUIManager dungeonUIManager;
 
     public virtual void Init(UIManager uIManager)
     {
         this.uiManager = uIManager;
+    }
+
+    public virtual void Init(DungeonUIManager dungeonUIManager)
+    {
+        this.dungeonUIManager = dungeonUIManager;
     }
 
     protected abstract UIState GetUIState();

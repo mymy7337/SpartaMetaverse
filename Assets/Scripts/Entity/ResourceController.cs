@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class ResourceController : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class ResourceController : MonoBehaviour
 
     public float CurrentHealth { get; private set; }
     public float MaxHealth => statHandler.Health;
+
+    private Action<float, float> OnChangeHealth;
 
     private void Awake()
     {
@@ -51,6 +55,8 @@ public class ResourceController : MonoBehaviour
         CurrentHealth = CurrentHealth > MaxHealth ? MaxHealth : CurrentHealth;
         CurrentHealth = CurrentHealth < 0 ? 0 : CurrentHealth;
 
+        OnChangeHealth?.Invoke(CurrentHealth, MaxHealth);
+
         if( change < 0)
         {
             animationHandler.Damage();
@@ -61,6 +67,16 @@ public class ResourceController : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void AddHealthChangeEvent(Action<float, float> action)
+    {
+        OnChangeHealth += action;
+    }
+
+    public void RemoveHealthChangeEvent(Action<float, float> action)
+    {
+        OnChangeHealth -= action;
     }
 
     private void Death()

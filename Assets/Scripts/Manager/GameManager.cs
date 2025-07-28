@@ -13,24 +13,46 @@ public class GameManager : MonoBehaviour
 
     private EnemyManager enemyManager;
 
+    private DungeonUIManager dungeonUIManager;
+    public static bool isFirstLoading = true;
+
     private void Awake()
     {
         Instance = this;
         player = FindObjectOfType<PlayerController>();
         player.Init(this);
 
+        dungeonUIManager = FindObjectOfType<DungeonUIManager>();
+
+        _playerResourceController = player.GetComponent<ResourceController>();
+        _playerResourceController.RemoveHealthChangeEvent(dungeonUIManager.ChangePlayerHP);
+        _playerResourceController.AddHealthChangeEvent(dungeonUIManager.ChangePlayerHP);
+
         enemyManager = GetComponentInChildren<EnemyManager>();
         enemyManager.Init(this);
+    }
+    private void Start()
+    {
+        if(!isFirstLoading)
+        {
+            StartGame();
+        }
+        else
+        {
+            isFirstLoading = false;
+        }
     }
 
     public void StartGame()
     {
+        dungeonUIManager.SetPlayGame();
         StartNextWave();
     }
 
     public void StartNextWave()
     {
         currentWaveIndex += 1;
+        dungeonUIManager.ChangeWave(currentWaveIndex);
         enemyManager.StartWave(1 + currentWaveIndex / 5);
     }
 
@@ -42,13 +64,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         enemyManager.StopWave();
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            StartGame();
-        }
+        dungeonUIManager.SetGameOver();
     }
 }
